@@ -1,26 +1,40 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is an [IonicFramework](http://ionicframework.com/docs/) based mobile app for reading articles from https://dev.to/ using their API.
 
-## How to use this template
+## Getting the app
+If you simply want to use the app you can go to Google Play Store: https://play.google.com/store/apps/details?id=io.ecompilot.devcommunity
 
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/driftyco/ionic2-app-base).
+iOs version will be published sooner or later, no schedule yet.
 
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/driftyco/ionic2-app-base).
 
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
-```bash
-$ sudo npm install -g ionic cordova
-$ ionic start myTabs tabs
-```
-
-Then, to run it, cd into `myTabs` and run:
+## Compiling the app yourself
+If you wish to compile and run it on your computer you need to clone this repository and run following commands:
 
 ```bash
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+cd dev_to
+npm install -g ionic cordova
+npm install
+ionic cordova run android
 ```
 
-Substitute ios for android if not on a Mac.
+You will need android virtual device created or real device connected to computer via USB cable.
 
+## Running in browser
+Currently not supported, because app is using native-http to access dev.to API. 
+
+Native-http might be replaced to angular http in near future when dev.to API will have correct CORS headers.
+
+## Current functionality
+* Getting list of latest articles
+* Reading the article
+* Sharing article via standard android sharing mechanism
+* Opening article page on dev.to site.
+
+## Plans/Roadmap
+* Prepare app and publish it to iOS App Store
+* Small redesign to use screen space more efficiently (remove paddings/margins), make font larger, add some CSS for better code listings appearance
+* Load comments for articles
+* Add offline reading functionality
+* Notifications about new articles even when app is in background or not running (don't know yet if it is possible with Ionic yet).
+
+## Licence
+MIT
