@@ -1,35 +1,26 @@
 import {Injectable}    from '@angular/core';
-// import {Http, Response} from '@angular/http';
-// import {Storage} from '@ionic/storage';
-import {Articles} from '../_models/articles';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {Observable} from 'rxjs/Rx';
-import {HTTP} from '@ionic-native/http';
 import {Article} from "../_models/article";
 @Injectable()
 export class ArticlesService {
   private feed_url = 'https://dev.to/api/articles';
   private article_url = 'https://dev.to/api/articles/';
-  constructor(public http: HTTP) {
+  constructor(public http: Http) {
 
   }
 
   getArticlesContent(): Promise<Article[]> {
-    return this.http.get(this.feed_url, {}, {}).then(
-      data=>{
-        return JSON.parse(data.data) as Article[];
-      }).catch(this.handleError);
+    return this.http.get(this.feed_url).toPromise().then(data=>{
+      return data.json() as Article[];
+    });
   }
-
-  // private extractArticles(res: Response): Articles {
-  //   let feed = res.json();
-  //   return feed || {};
-  // }
   getSingleArticle(article_id: number): Promise<Article>{
     let url = this.article_url+article_id;
     console.log(url);
-    return this.http.get(url, {}, {}).then(
-      data=>{return JSON.parse(data.data) as Article}).catch(this.handleError);
+    return this.http.get(url).toPromise().then(
+      data=>{return data.json() as Article}).catch(this.handleError);
   }
   private handleError(error: any) {
     // In a real world app, we might use a remote logging infrastructure

@@ -14,7 +14,6 @@ import {TabsPage} from '../pages/tabs/tabs';
 import {StatusBar} from '@ionic-native/status-bar';
 import {SplashScreen} from '@ionic-native/splash-screen';
 import {HttpModule} from '@angular/http';
-import {HTTP} from '@ionic-native/http';
 import {SocialSharing} from '@ionic-native/social-sharing';
 
 @NgModule({
@@ -47,7 +46,6 @@ import {SocialSharing} from '@ionic-native/social-sharing';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ArticlesService,
-    HTTP,
     SocialSharing
   ]
 })
