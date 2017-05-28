@@ -19,9 +19,11 @@ ionic cordova run android
 You will need android virtual device created or real device connected to computer via USB cable.
 
 ## Running in browser
-Currently not supported, because app is using native-http to access dev.to API. 
+To run in app in browser:
 
-Native-http might be replaced to angular http in near future when dev.to API will have correct CORS headers.
+```bash
+ionic serve
+```
 
 ## Current functionality
 * Getting list of latest articles
@@ -38,3 +40,6 @@ Native-http might be replaced to angular http in near future when dev.to API wil
 
 ## Licence
 MIT
+
+##Code of Conduct
+This project abides by the dev.to [code of conduct](https://dev.to/code-of-conduct)

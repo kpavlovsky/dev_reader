@@ -14,7 +14,7 @@
 
 
 <ion-content padding>
-  <ion-refresher>
+  <ion-refresher (ionRefresh)="refreshArticle($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   <ion-card *ngIf="article">
